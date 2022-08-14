@@ -1,15 +1,10 @@
 const express = require('express');
+const messages = require('./app/messages');
+
 const app = express();
 const port = '8000';
 
-app.post('/messages', (req, res) => {
-    res.send('Post messages');
-});
-
-app.get('/messages', (req, res) => {
-    res.send('Get messages');
-});
-
+app.use('/messages', messages);
 
 app.listen(port, () => {
     console.log('We are live on  ' + port);
